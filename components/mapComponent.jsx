@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE, MapStyle} from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE} from 'react-native-maps';
 
 class CustomMapView extends Component {  
   constructor(props) {
@@ -300,12 +301,6 @@ class CustomMapView extends Component {
     };
   }
 
-  onRegionChange = (region) => {
-    this.setState({ region });
-  };
-
-  
-
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -314,7 +309,6 @@ class CustomMapView extends Component {
           provider={PROVIDER_GOOGLE}
           showsUserLocation={true}
           region={this.state.region}
-          onRegionChange={this.onRegionChange}
           customMapStyle={this.state.customMapStyle}
         >
           {this.state.markers.map((marker, index) => (
@@ -333,13 +327,12 @@ class CustomMapView extends Component {
 
 export default CustomMapView;
 
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
 
