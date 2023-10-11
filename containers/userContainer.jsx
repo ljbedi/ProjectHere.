@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import userProfile from "../components/userProfile";
+import UserProfile from "../components/UserProfile";
 
-const userContainer = () => {
-  const [users, setUser] = useState([]);
+const UserContainer = () => {
+  const [users, setUsers] = useState([]);
   const BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
@@ -12,14 +12,14 @@ const userContainer = () => {
   const fetchUsers = () => {
     fetch(BASE_URL + "/users")
       .then((response) => response.json())
-      .then((users) => setUser(users));
+      .then((users) => setUsers(users));
   }
 
   return (
     <>
-    <userProfile users={users}/>
+    <UserProfile users={users}/>
     </>
   )
 };
 
-export default userContainer;
+export default UserContainer;

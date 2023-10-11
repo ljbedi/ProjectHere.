@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import userContainer from '../containers/userContainer';
 
 const UserProfile = ({ users }) => {
-  console.log(users)
   return (
     <View style={{ flex: 1 }}>
       <View style={{ alignItems: 'center', marginVertical: 10 }}>
@@ -23,5 +21,6 @@ const UserProfile = ({ users }) => {
     </View>
   );
 };
+
 
 export default UserProfile;
