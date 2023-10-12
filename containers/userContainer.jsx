@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import UserProfile from "../components/UserProfile";
+import UserProfile from "../components/userProfile"
 
 const UserContainer = () => {
   const [users, setUsers] = useState([]);
