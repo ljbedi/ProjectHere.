@@ -1,7 +1,7 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomMapView from './components/mapComponent';
-import GooglePlacesInput from './components/Search';
+
+import GooglePlacesInput from './components/search';
 import UserContainer from './containers/userContainer';
 import * as React from "react";
 import { NavigationContainer } from '@react-navigation/native';
