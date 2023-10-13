@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import CityList from "../components/CityList";
-import CityProfile from "../components/CityProfile";
+import CityProfile from "../screens/CityProfile";
 
 const CityContainer = ({navigation}) => {
   const [cities, setCities] = useState([]);

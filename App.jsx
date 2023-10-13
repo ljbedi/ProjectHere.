@@ -1,16 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native';
-import CustomMapView from './components/mapComponent';
-
-import GooglePlacesInput from './components/search';
-import UserContainer from './containers/userContainer';
 import * as React from "react";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from "./components/HomeScreen";
-import DestinationScreen from './components/DestinationScreen';
-import MapScreen from './components/MapScreen';
-import UserProfileScreen from './components/UserProfileScreen';
-import CityProfile from './components/CityProfile';
+import HomeScreen from "./screens/HomeScreen";
+import DestinationScreen from './screens/DestinationScreen';
+import MapScreen from './screens/MapScreen';
+import UserProfileScreen from './screens/UserProfileScreen';
+import CityProfile from './screens/CityProfile';
 import CityList from './components/CityList';
 
 const Stack = createNativeStackNavigator();

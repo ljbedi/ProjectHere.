@@ -1,11 +1,7 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-import CityContainer from '../containers/cityContainer';
+import { View, Text} from 'react-native';
 
 const CityProfile = ({route}) => {
-  console.log("rest")
-  console.log(route.params.city)
 
   const {city} = route.params
 
