@@ -25,7 +25,7 @@ function MapScreen( {navigation} ) {
     <>
     <GooglePlacesInput setCurrentLocation={setCurrentLocation} />
     <CustomMapView currentLocation={currentLocation}/>
-    <CheckIn/>
+    <CheckIn checkIn={CheckIn}/>
     </>
     </>
   );

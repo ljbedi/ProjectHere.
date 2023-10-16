@@ -23,6 +23,8 @@ const GooglePlacesInput = ({setCurrentLocation}) => {
         console.log("details", details.geometry.location)
       }}
       fetchDetails={true}
+      // currentLocation={true}
+      nearbyPlacesAPI='GooglePlacesSearch'
       query={{
         key: process.env.EXPO_PUBLIC_GOOGLE_CLOUD_API_KEY,
         language: 'en',
