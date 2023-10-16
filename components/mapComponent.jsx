@@ -316,6 +316,7 @@ class CustomMapView extends Component {
               title={marker.title}
               description={marker.description}
             />
+            
           ))}
         </MapView>
       </View>

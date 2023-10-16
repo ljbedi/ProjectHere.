@@ -7,7 +7,10 @@ import { GooglePlaceData } from 'react-native-google-places-autocomplete';
 import CheckIn from './CheckIn';
 
 
-function MapScreen( {navigation} ) {
+function MapScreen( {route} ) {
+
+  const {location} = route.params
+
 
   const [currentLocation, setCurrentLocation] = useState({
     lat: 55.9533,
@@ -25,7 +28,7 @@ function MapScreen( {navigation} ) {
     <>
     <GooglePlacesInput setCurrentLocation={setCurrentLocation} />
     <CustomMapView currentLocation={currentLocation}/>
-    <CheckIn/>
+    <CheckIn location={location} CheckIn={CheckIn}/>
     </>
     </>
   );

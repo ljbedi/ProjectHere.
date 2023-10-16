@@ -16,6 +16,8 @@ const CheckedInContainer = () => {
 
   };
 
+  console.log(checkedIns)
+
   return (
     <CheckInList checkedIns={checkedIns} />
   );

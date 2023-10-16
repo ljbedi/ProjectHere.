@@ -6,33 +6,14 @@ import DestinationScreen from './components/DestinationScreen';
 import MapScreen from './components/MapScreen';
 import UserProfileScreen from './components/UserProfileScreen';
 import CityProfile from './components/CityProfile';
-import CityList from './components/CityList';
-import CheckInList from './components/CheckInList';
 import React, { useState, useEffect } from 'react';
-import MyTabs from './components/MainTabNavigator';
-import CheckInList from './components/CheckInList';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CheckedInContainer from "./containers/CheckedInContainer";
 
 const Stack = createNativeStackNavigator();
 
-
-const Root = () => {
-  const Tab = createBottomTabNavigator();
-  return (
-    <Tab.Navigator>
-      <Tab.Screen name="Home" component={HomeScreen} />
-      <Tab.Screen name="Destinations" component={DestinationScreen} />
-      {/* <Tab.Screen name="City Profile" component={CityProfile} /> */}
-      <Tab.Screen name="Map" component={MapScreen} />
-      <Tab.Screen name="User Profile" component={UserProfileScreen} />
-    </Tab.Navigator>
-    )
-}
-
 const App = () => {
 
-export default function App() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -57,6 +38,25 @@ export default function App() {
     text = JSON.stringify(location);
   }
 
+  // console.log(location)
+
+const Root = () => {
+  const Tab = createBottomTabNavigator();
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Destinations" component={DestinationScreen} />
+      {/* <Tab.Screen name="City Profile" component={CityProfile} /> */}
+      <Tab.Screen name="Map" component={MapScreen} initialParams={{location}} />
+      <Tab.Screen name="User Profile" component={UserProfileScreen}/>
+    </Tab.Navigator>
+    )
+}
+
+
+
+
+
   return (
     <>
     <NavigationContainer>
@@ -69,7 +69,7 @@ export default function App() {
         <Stack.Screen name="Checked-In List" component={CheckedInContainer} options={{ title: 'Checked-In List'}}/> 
         <Stack.Screen name="City Profile" component={CityProfile}/> 
 
-      {/* </Stack.Navigator> */}
+      </Stack.Navigator>
       </NavigationContainer>
       </>
   );

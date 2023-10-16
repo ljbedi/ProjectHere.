@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
+import CheckInList from './CheckInList';
 
 const UserProfile = ({ users}) => {
   return (
@@ -16,6 +17,7 @@ const UserProfile = ({ users}) => {
               Username: {user.username} email: {user.email} Location: {user.location}
             </Text>
           </View>
+        
         )}
       />
     </View>

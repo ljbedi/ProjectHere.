@@ -2,21 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { View, Button, Text, Alert } from 'react-native';
 import * as Location from 'expo-location';
 
-const CheckIn = () => {
-  const [location, setLocation] = useState(null);
-  const [checkIns, setCheckIns] = useState([]);
+const CheckIn = ({location}) => {
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        Alert.alert('Permission to access location was denied');
-        return;
-      }
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
+  console.log(location)
 
   const handleCheckIn = async () => {
     try {
@@ -48,6 +36,7 @@ const CheckIn = () => {
     } catch (error) {
       console.error('Error occurred during check-in:', error);
       Alert.alert('Check-In Error');
+
     }
   };
 
