@@ -1,4 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import MapScreen from './MapScreen';
 import UserProfileScreen from './UserProfileScreen';
 import DestinationScreen from './DestinationScreen';

@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import { Button, View, Text , MapView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import CustomMapView from './MapComponent';
@@ -6,7 +6,14 @@ import GooglePlacesInput from './Search';
 import { GooglePlaceData } from 'react-native-google-places-autocomplete';
 import CheckIn from './CheckIn';
 
+
 function MapScreen( {navigation} ) {
+
+  const [currentLocation, setCurrentLocation] = useState({
+    lat: 55.9533,
+    lng: -3.1883
+  })
+
   return (
     <>
     {/* <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
@@ -16,8 +23,8 @@ function MapScreen( {navigation} ) {
         onPress={() => navigation.navigate('Destinations')}></Button>
     </View> */}
     <>
-    <GooglePlacesInput />
-    <CustomMapView/>
+    <GooglePlacesInput setCurrentLocation={setCurrentLocation} />
+    <CustomMapView currentLocation={currentLocation}/>
     <CheckIn/>
     </>
     </>

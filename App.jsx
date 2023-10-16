@@ -10,8 +10,27 @@ import CityList from './components/CityList';
 import CheckInList from './components/CheckInList';
 import React, { useState, useEffect } from 'react';
 import MyTabs from './components/MainTabNavigator';
+import CheckInList from './components/CheckInList';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import CheckedInContainer from "./containers/CheckedInContainer";
 
 const Stack = createNativeStackNavigator();
+
+
+const Root = () => {
+  const Tab = createBottomTabNavigator();
+  return (
+    <Tab.Navigator>
+      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Destinations" component={DestinationScreen} />
+      {/* <Tab.Screen name="City Profile" component={CityProfile} /> */}
+      <Tab.Screen name="Map" component={MapScreen} />
+      <Tab.Screen name="User Profile" component={UserProfileScreen} />
+    </Tab.Navigator>
+    )
+}
+
+const App = () => {
 
 export default function App() {
   const [location, setLocation] = useState(null);
@@ -41,19 +60,20 @@ export default function App() {
   return (
     <>
     <NavigationContainer>
-    {/* <Stack.Navigator initialRouteName="Home"> */}
-      <MyTabs/>
-      <Stack.Screen name="Home" component={HomeScreen} options={{ title: 'Here.'}}/>
-      <Stack.Screen name="Destinations" component={DestinationScreen} options={{ title: 'Destinations'}}/>
-      <Stack.Screen name="Map" component={MapScreen} options={{ title: 'Map'}}/>
-      <Stack.Screen name="User Profile" component={UserProfileScreen} options={{ title: 'User Profile'}}/>
-      <Stack.Screen name="City Profile" component={CityProfile} options={{ title: 'City Profile'}}/> 
-      <Stack.Screen name="City List" component={CityList} options={{ title: 'City List'}}/> 
-      <Stack.Screen name="Checked-In List" component={CheckInList} options={{ title: 'Checked-In List'}}/> 
+      {/* {!user.loggedIn ? <Stack.Navigator>// Stack.Screen - LoginScreen</Stack.Navigator> : } */}
+      <Stack.Navigator initialRouteName="Home">
+        {/* Tabs */}
+        <Stack.Screen name="Root" component={Root} />
+
+        {/* Other Screens */}
+        <Stack.Screen name="Checked-In List" component={CheckedInContainer} options={{ title: 'Checked-In List'}}/> 
+        <Stack.Screen name="City Profile" component={CityProfile}/> 
 
       {/* </Stack.Navigator> */}
       </NavigationContainer>
       </>
   );
 }
+
+export default App;
 

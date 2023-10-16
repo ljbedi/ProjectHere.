@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 import CheckInList from "../components/CheckInList";
 
 const CheckedInContainer = () => {
-  const [checkedIn, setCheckedIn] = useState([]);
+  const [checkedIns, setCheckedIns] = useState([]);
   const BASE_URL = "http://localhost:8080"; 
 
   useEffect(() => {
-    fetchCheckedIn();
+    fetchCheckedIns();
   }, []);
 
-  const fetchCheckedIn = () => {
-    fetch(BASE_URL + "/checked_in")
+  const fetchCheckedIns = () => {
+    fetch(BASE_URL + "/users/12/checked_ins")
       .then((response) => response.json())
-      .then((checkIn) => setCheckedIn(checkIn))
-      .catch((error) => console.error("Error fetching checked-in data: ", error));
+      .then((checkIns) => setCheckedIns(checkIns))
+
   };
 
   return (
-    <CheckInList checkedIn={checkedIn} />
+    <CheckInList checkedIns={checkedIns} />
   );
 };
 

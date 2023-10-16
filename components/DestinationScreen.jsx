@@ -1,7 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
 import CityContainer from '../containers/CityContainer';
-import CityList from './CityList';
 
 function DestinationScreen({navigation}) {
   return (
