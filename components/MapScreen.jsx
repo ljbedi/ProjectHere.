@@ -1,9 +1,10 @@
 import * as React from 'react';
 import { Button, View, Text , MapView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import CustomMapView from './mapComponent';
+import CustomMapView from './MapComponent';
 import GooglePlacesInput from './Search';
 import { GooglePlaceData } from 'react-native-google-places-autocomplete';
+import CheckIn from './CheckIn';
 
 function MapScreen( {navigation} ) {
   return (
@@ -17,6 +18,7 @@ function MapScreen( {navigation} ) {
     <>
     <GooglePlacesInput />
     <CustomMapView/>
+    <CheckIn/>
     </>
     </>
   );

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import UserContainer from '../containers/userContainer';
+import UserContainer from '../containers/UserContainer';
 
 function UserProfileScreen({navigation}) {
   return (
