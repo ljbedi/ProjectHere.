@@ -8,8 +8,6 @@ class CustomMapView extends Component {
     super(props);
     this.state = {
       region: {
-        latitude: 55.9533,
-        longitude: -3.1883,
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       },
@@ -308,7 +306,7 @@ class CustomMapView extends Component {
           style={{flex:1}}
           provider={PROVIDER_GOOGLE}
           showsUserLocation={true}
-          region={this.state.region}
+          region={{...this.state.region, latitude: this.props.currentLocation.lat, longitude: this.props.currentLocation.lng}}
           customMapStyle={this.state.customMapStyle}
         >
           {this.state.markers.map((marker, index) => (
