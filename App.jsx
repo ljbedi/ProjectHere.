@@ -1,8 +1,4 @@
-// import { StyleSheet, Text, View } from 'react-native';
-// import CustomMapView from './components/MapComponent';
-// import GooglePlacesInput from './components/Search';
-// import UserContainer from './containers/UserContainer';
-import * as React from "react";
+import * as Location from 'expo-location';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from "./components/HomeScreen";
@@ -11,6 +7,8 @@ import MapScreen from './components/MapScreen';
 import UserProfileScreen from './components/UserProfileScreen';
 import CityProfile from './components/CityProfile';
 import CityList from './components/CityList';
+import CheckInList from './components/CheckInList';
+import React, { useState, useEffect } from 'react';
 import MyTabs from './components/MainTabNavigator';
 import CheckInList from './components/CheckInList';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -34,6 +32,31 @@ const Root = () => {
 
 const App = () => {
 
+export default function App() {
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
+
+  let text = 'Waiting..';
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (location) {
+    text = JSON.stringify(location);
+  }
+
   return (
     <>
     <NavigationContainer>
@@ -46,7 +69,7 @@ const App = () => {
         <Stack.Screen name="Checked-In List" component={CheckedInContainer} options={{ title: 'Checked-In List'}}/> 
         <Stack.Screen name="City Profile" component={CityProfile}/> 
 
-      </Stack.Navigator>
+      {/* </Stack.Navigator> */}
       </NavigationContainer>
       </>
   );

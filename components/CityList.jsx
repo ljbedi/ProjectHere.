@@ -1,9 +1,5 @@
 import React from 'react';
 import { Button, View, Text, FlatList } from 'react-native';
-import { NavigationContainer } from '@react-navigation/native';
-
-
-
 
 const CityList = ({ navigation, cities }) => {
   return (
