@@ -4,7 +4,7 @@ import CityList from "../components/CityList";
 const CityContainer = ({navigation}) => {
   const [cities, setCities] = useState([]);
   const BASE_URL = "http://localhost:8080";
-  console.log(navigation)
+  
   useEffect(() => {
     fetchCities();
   }, []);

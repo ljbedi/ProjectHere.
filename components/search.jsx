@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 import { GooglePlacesAutocomplete } from 'react-native-google-places-autocomplete';
 
 
-const GooglePlacesInput = () => {
+const GooglePlacesInput = ({setCurrentLocation}) => {
 
   return (
     <GooglePlacesAutocomplete
@@ -18,9 +18,9 @@ const GooglePlacesInput = () => {
       placeholder='Search'
       onFail={err => console.log(err)}
       onPress={(data, details = null) => {
-
-        // Gets the lat/lng
-        console.log(details.geometry.location)
+        setCurrentLocation(details.geometry.location)
+        console.log(details)
+        console.log("details", details.geometry.location)
       }}
       fetchDetails={true}
       query={{

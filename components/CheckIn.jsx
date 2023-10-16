@@ -41,14 +41,14 @@ const CheckIn = () => {
           setCheckIns([...checkIns, newCheckIn]);
           Alert.alert('Check-In Successful', `You have checked in at Latitude: ${location.coords.latitude}, Longitude: ${location.coords.longitude}`);
         } else {
-          Alert.alert('Check-In Failed', 'Failed to check in. Please try again later.');
+          Alert.alert('Check-In Failed');
         }
       } else {
         Alert.alert('Location not available', 'Please enable location services and try again.');
       }
     } catch (error) {
       console.error('Error occurred during check-in:', error);
-      Alert.alert('Check-In Error', 'An error occurred during check-in. Please try again later.');
+      Alert.alert('Check-In Error');
     }
   };
 
