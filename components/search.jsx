@@ -27,6 +27,7 @@ const GooglePlacesInput = () => {
         key: process.env.EXPO_PUBLIC_GOOGLE_CLOUD_API_KEY,
         language: 'en',
         type: "establishment",
+        components: 'country:uk'
       }}
     />
   );

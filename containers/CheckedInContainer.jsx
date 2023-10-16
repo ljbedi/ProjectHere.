@@ -12,12 +12,12 @@ const CheckedInContainer = () => {
   const fetchCheckedIn = () => {
     fetch(BASE_URL + "/checked_in")
       .then((response) => response.json())
-      .then((checkedInData) => setCheckedIn(checkedInData))
+      .then((checkIn) => setCheckedIn(checkIn))
       .catch((error) => console.error("Error fetching checked-in data: ", error));
   };
 
   return (
-    <CheckInList checkIns={checkedIn} />
+    <CheckInList checkedIn={checkedIn} />
   );
 };
 
