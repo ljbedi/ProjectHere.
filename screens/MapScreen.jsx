@@ -1,21 +1,24 @@
 import React, {useState} from 'react';
 import { Button, View, Text , MapView} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import CustomMapView from './MapComponent';
-import GooglePlacesInput from './Search';
+import CustomMapView from '../components/MapComponent';
+import GooglePlacesInput from '../components/Search';
 import { GooglePlaceData } from 'react-native-google-places-autocomplete';
-import CheckIn from './CheckIn';
+import CheckIn from '../components/CheckIn';
 
 
 function MapScreen( {route} ) {
 
   const {location} = route.params
 
+const [selectedEstablishment, setSelectedEstablishment] = useState(null)
 
   const [currentLocation, setCurrentLocation] = useState({
     lat: 55.9533,
     lng: -3.1883
   })
+
+
 
   return (
     <>
@@ -27,8 +30,8 @@ function MapScreen( {route} ) {
     </View> */}
     <>
     <GooglePlacesInput setCurrentLocation={setCurrentLocation} />
-    <CustomMapView currentLocation={currentLocation}/>
-    <CheckIn location={location} CheckIn={CheckIn}/>
+    <CustomMapView currentLocation={currentLocation} setSelectedEstablishment={setSelectedEstablishment}/>
+    <CheckIn selectedEstablishment={selectedEstablishment} CheckIn={CheckIn}/>
     </>
     </>
   );

@@ -278,27 +278,17 @@ class CustomMapView extends Component {
           ]
         }
       ],
-      markers: [
-        {
-          latlng: {
-            latitude: 55.957106,
-            longitude: -3.185179,
-          },
-          title: 'CC Blooms',
-          description: 'Popular LGBTQIA+ bar, providing drag shows, dining and dancefloor.',
-        },
-        {
-          latlng: {
-            latitude: 55.9403572,
-            longitude: -3.2115987,
-          },
-          title: 'Kafe Kweer',
-          description: 'LGBTQIA+ owned cafe offering a cosy, sober space.',
-        },
-      ],
+      markers: establishments.map(establishment => {
+        return 
+        {latlng: 
+          {latitude: establishment.lat, longitude: establishment.lng}
+        }, id: establishment.id, title: establishment.title, description: establishment.description})
     };
   }
-
+handlePressEvent(latlng){
+  console.log(latlng)
+  this.props.setSelectedEstablishment(latlng)
+}
   render() {
     return (
       <View style={{ flex: 1 }}>
@@ -315,6 +305,8 @@ class CustomMapView extends Component {
               coordinate={marker.latlng}
               title={marker.title}
               description={marker.description}
+              onPress={() => 
+                this.handlePressEvent(marker.latlng)}
             />
             
           ))}
