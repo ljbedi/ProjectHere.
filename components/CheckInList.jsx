@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
+import { Link } from '@react-navigation/native';
 // import CheckedInContainer from '../containers/CheckedInContainer';
 
 const CheckInList = ({ checkedIns }) => {
@@ -14,10 +15,9 @@ const CheckInList = ({ checkedIns }) => {
         keyExtractor={(checkIn) => checkIn.id.toString()}
         renderItem={({ item : checkIn }) => (
           <View>
-            <Text>
+            <Link to={{screen: 'Establishment', params: {id: checkIn.id}}}>
               Name: {checkIn.name}, Description: {checkIn.description}
-            </Text>
-            {/* <CheckedInContainer/> */}
+            </Link>
           </View>
         )}
       />

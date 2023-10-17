@@ -18,10 +18,6 @@ function HomeScreen( {navigation} ) {
         title="Your User Profile"
         onPress={() => navigation.navigate('User Profile')}
       />
-      <Button
-        title="Your Check Ins"
-        onPress={() => navigation.navigate('Checked-In List')}
-        />
     </View>
   );
 }

@@ -1,14 +1,15 @@
 import * as Location from 'expo-location';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import HomeScreen from "./components/HomeScreen";
-import DestinationScreen from './components/DestinationScreen';
-import MapScreen from './components/MapScreen';
-import UserProfileScreen from './components/UserProfileScreen';
+import HomeScreen from "./screens/HomeScreen";
+import DestinationScreen from './screens/DestinationScreen';
+import MapScreen from './screens/MapScreen';
+import UserProfileScreen from './screens/UserProfileScreen';
 import CityProfile from './components/CityProfile';
 import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CheckedInContainer from "./containers/CheckedInContainer";
+import EstablishmentScreen from './screens/EstablishmentScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -61,14 +62,13 @@ const Root = () => {
     <>
     <NavigationContainer>
       {/* {!user.loggedIn ? <Stack.Navigator>// Stack.Screen - LoginScreen</Stack.Navigator> : } */}
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="here.">
         {/* Tabs */}
-        <Stack.Screen name="Root" component={Root} />
+        <Stack.Screen name="here." component={Root} />
 
         {/* Other Screens */}
-        <Stack.Screen name="Checked-In List" component={CheckedInContainer} options={{ title: 'Checked-In List'}}/> 
         <Stack.Screen name="City Profile" component={CityProfile}/> 
-
+        <Stack.Screen name="Establishment" component={EstablishmentScreen}/>
       </Stack.Navigator>
       </NavigationContainer>
       </>
