@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { View, Text } from 'react-native';
-import UserContainer from '../containers/UserContainer';
-import CheckedInContainer from '../containers/CheckedInContainer';
 import EstablishmentContainer from '../containers/EstablishmentContainer';
 
 function EstablishmentScreen({route, navigation}) {

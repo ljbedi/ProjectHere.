@@ -14,7 +14,7 @@ const CheckedInContainer = ({navigation}) => {
   );
 
   const fetchCheckedIns = () => {
-    fetch(BASE_URL + "/users/21/checked_ins")
+    fetch(BASE_URL + "/users/1/checked_ins")
       .then((response) => response.json())
       .then((checkIns) => setCheckedIns(checkIns))
 
