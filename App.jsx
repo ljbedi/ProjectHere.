@@ -8,7 +8,6 @@ import UserProfileScreen from './screens/UserProfileScreen';
 import CityProfile from './components/CityProfile';
 import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CheckedInContainer from "./containers/CheckedInContainer";
 import EstablishmentScreen from './screens/EstablishmentScreen';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
 import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot'
@@ -91,11 +90,11 @@ const App = () => {
       ) : (
         <Stack.Navigator>
           {/* Tabs */}
-          <Stack.Screen name="here." component={Root} />
+          <Stack.Screen name="here." component={Root} options={{ headerShown: false }}/>
 
           {/* Other Screens */}
-          <Stack.Screen name="City Profile" component={CityProfile} />
-          <Stack.Screen name="Establishment" component={EstablishmentScreen} />
+          <Stack.Screen name="City Profile" component={CityProfile}/>
+          <Stack.Screen name="Establishment" component={EstablishmentScreen}/>
         </Stack.Navigator>
       )}
     </NavigationContainer>
