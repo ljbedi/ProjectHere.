@@ -45,10 +45,9 @@ class CustomMapView extends Component {
         <MapView
           style={{ flex: 1 }}
           provider={PROVIDER_GOOGLE}
-
           showsUserLocation={true}
           region={{...this.state.region, latitude: this.props.currentLocation.lat, longitude: this.props.currentLocation.lng}}
-          customMapStyle={this.state.customMapStyle}
+          customMapStyle={customMapStyle}
           onPress={() => this.props.selectedEstablishment && this.props.setSelectedEstablishment(null)}
 
         >
