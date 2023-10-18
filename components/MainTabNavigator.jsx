@@ -5,6 +5,8 @@ import UserProfileScreen from './UserProfileScreen';
 import DestinationScreen from './DestinationScreen';
 import HomeScreen from './HomeScreen';
 import CityProfile from './CityProfile';
+import { Ionicons } from '@expo/vector-icons';
+
 
 const Tab = createBottomTabNavigator();
 

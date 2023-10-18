@@ -122,7 +122,7 @@ class CustomMapView extends Component {
           "elementType": "labels.text.fill",
           "stylers": [
             {
-              "color": "#447530"
+              "color": "#cc87c3"
             }
           ]
         },
@@ -278,13 +278,31 @@ class CustomMapView extends Component {
           ]
         }
       ],
-      markers: establishments.map(establishment => {
-        return 
-        {latlng: 
-          {latitude: establishment.lat, longitude: establishment.lng}
-        }, id: establishment.id, title: establishment.title, description: establishment.description})
-    };
-  }
+      markers:
+      [  
+        {
+          latlng: {
+            latitude: 55.957106,
+            longitude: -3.185179,
+          },
+          id: 10, 
+          title: 'CC Blooms',
+          description: 'Popular LGBTQIA+ bar, providing drag shows, dining and dancefloor.',
+        },
+        {
+          latlng: {
+            latitude: 55.9403572,
+            longitude: -3.2115987,
+          },
+          id: 11,
+          title: 'Kafe Kweer',
+          description: 'LGBTQIA+ owned cafe offering a cosy, sober space.',
+        },
+      ],
+    }}
+
+
+
 handlePressEvent(latlng){
   console.log(latlng)
   this.props.setSelectedEstablishment(latlng)
