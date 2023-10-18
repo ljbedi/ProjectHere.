@@ -24,6 +24,7 @@ function MapScreen({ route }) {
       <CustomMapView
         currentLocation={currentLocation}
         setSelectedEstablishment={setSelectedEstablishment}
+        selectedEstablishment={selectedEstablishment}
         onPress={handleDeselectEstablishment}
       />
       {selectedEstablishment && (
