@@ -18,6 +18,7 @@ const CityList = ({ navigation, cities }) => {
           </View>
         )}
       />
+      <Text style={styles.text1}>More destinations coming soon!</Text>
     </View>
   );
 };
@@ -30,6 +31,10 @@ const styles = StyleSheet.create({
     textDecorationColor: 'black',
     color: 'black'
   },
+  text1: {
+    bottom: 350,
+    fontSize: 24,
+  }
 });
 
 
