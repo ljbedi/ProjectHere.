@@ -8,15 +8,15 @@ const CheckInList = ({ checkedIns }) => {
   return (
     <View style={{flex:1}}>
       <View style = {{alignItems: 'center', marginVertical: 10}}>
-        <Text style = {{fontSize: 20}}>List of Check-Ins:</Text>
+        <Text style = {{fontSize: 20}}>You've Been Here</Text>
       </View>
       <FlatList
         data={checkedIns}
         keyExtractor={(checkIn) => checkIn.id.toString()}
         renderItem={({ item : checkIn }) => (
-          <View>
+          <View style={style.checkInList}>
             <Link to={{screen: 'Establishment', params: {id: checkIn.id}}}>
-              Name: {checkIn.name}, Description: {checkIn.description}
+              {checkIn.name}
             </Link>
           </View>
         )}
@@ -24,6 +24,12 @@ const CheckInList = ({ checkedIns }) => {
     </View>
   );
 };
+
+const style= Stylesheet.create ({
+  checkInList: {
+    
+  }
+})
 
 export default CheckInList;
 

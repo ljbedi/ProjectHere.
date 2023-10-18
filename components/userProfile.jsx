@@ -1,24 +1,11 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text} from 'react-native';
 
-const UserProfile = ({ users}) => {
+const UserProfile = ({user}) => {
+
   return (
     <View style={{ flex: 1 }}>
-      <View style={{ alignItems: 'center', marginVertical: 10 }}>
-        <Text style={{ fontSize: 20 }}>Users</Text>
-      </View>
-      <FlatList
-        data={users}
-        keyExtractor={(user) => user.id.toString()}
-        renderItem={({ item: user }) => (
-          <View>
-            <Text>
-              Username: {user.username} email: {user.email} Location: {user.location}
-            </Text>
-          </View>
-        
-        )}
-      />
+      <Text>{user.username}</Text>
     </View>
   );
 };

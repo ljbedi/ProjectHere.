@@ -2,22 +2,22 @@ import { useEffect, useState } from "react";
 import UserProfile from "../components/UserProfile"
 
 const UserContainer = () => {
-  const [users, setUsers] = useState([]);
+  const [user, setUser] = useState(null);
   const BASE_URL = "http://localhost:8080";
 
   useEffect(() => {
-    fetchUsers();
+    fetchUser();
   }, []);
 
-  const fetchUsers = () => {
-    fetch(BASE_URL + "/users")
+  const fetchUser = () => {
+    fetch(BASE_URL + "/users/1")
       .then((response) => response.json())
-      .then((users) => setUsers(users));
+      .then((user) => setUser(user));
   }
 
   return (
     <>
-    <UserProfile users={users}/>
+    {user && <UserProfile user={user}/>}
     </>
   )
 };
