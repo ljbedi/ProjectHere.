@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import { StyleSheet } from 'react-native';
 import { View } from 'react-native';
-import MapView, { Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+import MapView, { Marker, PROVIDER_GOOGLE } from 'react-native-maps';
+import customMapStyle from '../styles/MapStyle';
 
-class CustomMapView extends Component {  
+const BASE_URL = "http://localhost:8080";
+
+class CustomMapView extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -11,304 +13,51 @@ class CustomMapView extends Component {
         latitudeDelta: 0.0922,
         longitudeDelta: 0.0421,
       },
-      customMapStyle: [
-        {
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#ebe3cd"
-            }
-          ]
-        },
-        {
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#523735"
-            }
-          ]
-        },
-        {
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#f5f1e6"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative",
-          "elementType": "geometry.stroke",
-          "stylers": [
-            {
-              "color": "#c9b2a6"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative.land_parcel",
-          "elementType": "geometry.stroke",
-          "stylers": [
-            {
-              "color": "#dcd2be"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative.land_parcel",
-          "elementType": "labels",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "administrative.land_parcel",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#ae9e90"
-            }
-          ]
-        },
-        {
-          "featureType": "landscape.natural",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#dfd2ae"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#dfd2ae"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "labels.text",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "poi",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#93817c"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#a5b076"
-            }
-          ]
-        },
-        {
-          "featureType": "poi.park",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#447530"
-            }
-          ]
-        },
-        {
-          "featureType": "road",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#f5f1e6"
-            }
-          ]
-        },
-        {
-          "featureType": "road.arterial",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.arterial",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#fdfcf8"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#f8c967"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "geometry.stroke",
-          "stylers": [
-            {
-              "color": "#e9bc62"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway",
-          "elementType": "labels",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway.controlled_access",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#e98d58"
-            }
-          ]
-        },
-        {
-          "featureType": "road.highway.controlled_access",
-          "elementType": "geometry.stroke",
-          "stylers": [
-            {
-              "color": "#db8555"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "labels",
-          "stylers": [
-            {
-              "visibility": "off"
-            }
-          ]
-        },
-        {
-          "featureType": "road.local",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#806b63"
-            }
-          ]
-        },
-        {
-          "featureType": "transit.line",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#dfd2ae"
-            }
-          ]
-        },
-        {
-          "featureType": "transit.line",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#8f7d77"
-            }
-          ]
-        },
-        {
-          "featureType": "transit.line",
-          "elementType": "labels.text.stroke",
-          "stylers": [
-            {
-              "color": "#ebe3cd"
-            }
-          ]
-        },
-        {
-          "featureType": "transit.station",
-          "elementType": "geometry",
-          "stylers": [
-            {
-              "color": "#dfd2ae"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "geometry.fill",
-          "stylers": [
-            {
-              "color": "#b9d3c2"
-            }
-          ]
-        },
-        {
-          "featureType": "water",
-          "elementType": "labels.text.fill",
-          "stylers": [
-            {
-              "color": "#92998d"
-            }
-          ]
-        }
-      ],
-      markers: establishments.map(establishment => {
-        return 
-        {latlng: 
-          {latitude: establishment.lat, longitude: establishment.lng}
-        }, id: establishment.id, title: establishment.title, description: establishment.description})
+      markers: [],
     };
   }
-handlePressEvent(latlng){
-  console.log(latlng)
-  this.props.setSelectedEstablishment(latlng)
-}
+
+  componentDidMount() {
+    this.fetchEstablishments();
+  }
+
+  fetchEstablishments = () => {
+    fetch(BASE_URL + "/establishments")
+      .then((response) => response.json())
+      .then((establishments) => {
+        const markers = establishments.map((establishment) => ({
+          latlng: { latitude: establishment.latitude, longitude: establishment.longitude },
+          id: establishment.id,
+          title: establishment.title,
+          description: establishment.description,
+        }));
+        this.setState({ markers });
+      });
+  };
+
+  handlePressEvent(latlng){
+    console.log(latlng)
+    this.props.setSelectedEstablishment(latlng)}
+
   render() {
     return (
       <View style={{ flex: 1 }}>
         <MapView
-          style={{flex:1}}
+          style={{ flex: 1 }}
           provider={PROVIDER_GOOGLE}
-          showsUserLocation={true}
-          region={{...this.state.region, latitude: this.props.currentLocation.lat, longitude: this.props.currentLocation.lng}}
-          customMapStyle={this.state.customMapStyle}
+          region={{...this.state.region, 
+            latitude: this.props.currentLocation.lat, 
+            longitude: this.props.currentLocation.lng}}
+          customMapStyle={customMapStyle}
         >
-          {this.state.markers.map((marker, index) => (
+          {this.state.markers.map((marker) => (
             <Marker
-              key={index}
+              key={marker.id}
               coordinate={marker.latlng}
               title={marker.title}
               description={marker.description}
-              onPress={() => 
-                this.handlePressEvent(marker.latlng)}
+              onPress={() => this.handlePressEvent(marker.latlng)}
             />
-            
           ))}
         </MapView>
       </View>
@@ -318,12 +67,74 @@ handlePressEvent(latlng){
 
 export default CustomMapView;
 
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     backgroundColor: '#fff',
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-// });
 
+
+// import React, { Component } from 'react';
+// import { View } from 'react-native';
+// import MapView, { Marker, PROVIDER_GOOGLE} from 'react-native-maps';
+// import customMapStyle from '../styles/MapStyle';
+
+
+// const getEstablishments = () => {
+//   const [establishments, setEstablishments] = useState([]);
+//   const BASE_URL = "http://localhost:8080"; 
+
+//   useEffect(() => {
+//     fetchEstablishments();
+//   }, []);
+
+//   const fetchEstablishments = () => {
+//     fetch(BASE_URL + "/establishments")
+//       .then((response) => response.json())
+//       .then((establishments) => setEstablishments(establishments))
+//   };
+  
+// class CustomMapView extends Component {  
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       region: {
+//         latitudeDelta: 0.0922,
+//         longitudeDelta: 0.0421,
+//       },
+    
+//       markers: establishments.map(establishment => {
+//         return 
+//         {latlng: 
+//           {latitude: establishment.lat, longitude: establishment.lng}
+//         } id: establishment.id, title: establishment.title, description: establishment.description})
+//     };
+//   }
+
+// handlePressEvent(latlng){
+//   console.log(latlng)
+//   this.props.setSelectedEstablishment(latlng)
+// }
+//   render() {
+//     return (
+//       <View style={{ flex: 1 }}>
+//         <MapView
+//           style={{flex:1}}
+//           provider={PROVIDER_GOOGLE}
+//           showsUserLocation={true}
+//           region={{...this.state.region, latitude: this.props.currentLocation.lat, longitude: this.props.currentLocation.lng}}
+//           customMapStyle={customMapStyle}
+//         >
+//           {this.state.markers.map((marker, index) => (
+//             <Marker
+//               key={index}
+//               coordinate={marker.latlng}
+//               title={marker.title}
+//               description={marker.description}
+//               onPress={() => 
+//                 this.handlePressEvent(marker.latlng)}
+//             />
+            
+//           ))}
+//         </MapView>
+//       </View>
+//     );
+//   }
+// }}
+
+// export default CustomMapView;
