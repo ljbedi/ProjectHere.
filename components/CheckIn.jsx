@@ -9,16 +9,15 @@ const CheckIn = ({ selectedEstablishment }) => {
     try {
       if (selectedEstablishment) {
         
-        const response = await fetch(`http://localhost:8080/establishments/find?lat=${selectedEstablishment.latitude}&lng=${selectedEstablishment.longitude}&user_id=21`);
+        const response = await fetch(`http://localhost:8080/establishments/find?lat=${selectedEstablishment.latitude}&lng=${selectedEstablishment.longitude}&user_id=1`);
         console.log(response.status)
         if (response.ok) {
           const establishment = await response.json()
           const newCheckIn = {
             establishment_id: establishment.id,
-            user_id: 21
+            user_id: 1
           };
           setCheckedInEstablishment(selectedEstablishment);
-          // setCheckIns(prevCheckIns => [...prevCheckIns, newCheckIn]);
           Alert.alert('Check-In Successful', `You have checked in at ${selectedEstablishment.name}`);
         } else {
           Alert.alert('Check-In Failed');
@@ -30,6 +29,7 @@ const CheckIn = ({ selectedEstablishment }) => {
       console.error('Error occurred during check-in:', error);
       Alert.alert('Check-In Error');
     }
+
   };
 
   return (

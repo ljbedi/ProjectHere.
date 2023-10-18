@@ -24,12 +24,12 @@ const EstablishmentContainer = ({route, navigation}) => {
       {establishment && 
       <>
         <Text>{establishment.name}</Text>
+        <Text>{establishment.description}</Text>
         <Text>Total Checked In Users: {establishment.checked_in_users && establishment.checked_in_users.length}</Text>
         <Text>Reviews:</Text>
         {establishment.reviews && establishment.reviews.map(review => <Text>{review.post} ({review.rating})</Text>)}
       </>
       }
-      
     </View>
   )
 };
