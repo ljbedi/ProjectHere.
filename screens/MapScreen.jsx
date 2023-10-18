@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     position: 'absolute',
-    top: 0,
+    top: 10,
     left: 15,
     right: 0,
   },
@@ -64,7 +64,6 @@ const styles = StyleSheet.create({
   search: {
     maxHeight: 50,
     margin: 10,
-    backgroundColor: 'lightgray',
     borderRadius: 5,
     padding: 10,
   },

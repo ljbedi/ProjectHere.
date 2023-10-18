@@ -28,8 +28,8 @@ const GooglePlacesInput = ({setCurrentLocation}) => {
       query={{
         key: process.env.EXPO_PUBLIC_GOOGLE_CLOUD_API_KEY,
         language: 'en',
-        type: "establishment",
-        components: 'country:uk'
+        type: "(cities)",
+        // components: 'country:uk'
       }}
     />
   );

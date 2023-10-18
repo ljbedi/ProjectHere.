@@ -10,14 +10,17 @@ import React, { useState, useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import CheckedInContainer from "./containers/CheckedInContainer";
 import EstablishmentScreen from './screens/EstablishmentScreen';
-import { Ionicons } from '@expo/vector-icons';
-import Icon from 'react-native-ionicons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
+import { faLocationDot } from '@fortawesome/free-solid-svg-icons/faLocationDot'
+import { faPlaneDeparture } from '@fortawesome/free-solid-svg-icons/faPlaneDeparture'
+import { faUser } from '@fortawesome/free-solid-svg-icons/faUser'
 
 
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
 const App = () => {
+
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -46,25 +49,32 @@ const App = () => {
   const Root = () => {
     return (
       <Tab.Navigator
-        screenOptions={{
-        tabBarStyle: { backgroundColor: '#325F62', height: 100, borderTopWidth: 2, borderTopColor: 'black' },
-        tabBarLabelStyle: { fontSize: 16, color: 'white' },
-        tabBarIndicatorStyle: { backgroundColor: 'white', height: 3 },
-  }}
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            if(route.name == "Destinations") {
+              return <FontAwesomeIcon icon={faPlaneDeparture} size={30} color={"#FDF295"} />
+            } else if (route.name == "Map") {
+              return <FontAwesomeIcon icon={faLocationDot} size={50} color={"#FDF295"} />
+
+            } else if (route.name == "User Profile") {
+              return <FontAwesomeIcon icon={faUser} size={30} color={"#FDF295"} />
+
+            }
+            
+          },
+          
+          tabBarStyle: { backgroundColor: '#325F62', borderTopWidth: 2, borderTopColor: 'black', paddingBottom: 0},
+          // tabBarLabelStyle: { fontSize: 16, color: 'white' },
+          // tabBarIndicatorStyle: { backgroundColor: 'white', height: 100 },
+          tabBarShowLabel: false,
+        })}
+        
         initialRouteName="Map"
+  
 >
   <Tab.Screen
     name="Destinations"
     component={DestinationScreen}
-    options={{
-      tabBarIcon: ({ focused, color, size }) => (
-        <Ionicons
-          name={focused ? 'heart' : 'heart-outline'}
-          size={size}
-          color={color}
-        />
-      ),
-    }}
   />
         <Tab.Screen name="Map" component={MapScreen} initialParams={{ location }} options={{ headerShown: false }}/>
         <Tab.Screen name="User Profile" component={UserProfileScreen} options={{ headerShown: false }}/>
