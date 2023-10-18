@@ -30,14 +30,15 @@ class CustomMapView extends Component {
           id: establishment.id,
           title: establishment.title,
           description: establishment.description,
+          data: establishment
         }));
         this.setState({ markers });
       });
   };
 
-  handlePressEvent(latlng){
-    console.log(latlng)
-    this.props.setSelectedEstablishment(latlng)}
+  handlePressEvent(data){
+    console.log(data)
+    this.props.setSelectedEstablishment(data)}
 
   render() {
     return (
@@ -48,7 +49,7 @@ class CustomMapView extends Component {
 
           showsUserLocation={true}
           region={{...this.state.region, latitude: this.props.currentLocation.lat, longitude: this.props.currentLocation.lng}}
-          customMapStyle={this.state.customMapStyle}
+          customMapStyle={customMapStyle}
           onPress={() => this.props.selectedEstablishment && this.props.setSelectedEstablishment(null)}
 
         >
@@ -58,7 +59,7 @@ class CustomMapView extends Component {
               coordinate={marker.latlng}
               title={marker.title}
               description={marker.description}
-              onPress={() => this.handlePressEvent(marker.latlng)}
+              onPress={() => setTimeout(() => this.handlePressEvent(marker.data), 1)}
             />
           ))}
         </MapView>

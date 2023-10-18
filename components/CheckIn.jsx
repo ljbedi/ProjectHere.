@@ -31,15 +31,13 @@ const CheckIn = ({ selectedEstablishment }) => {
     }
 
   };
-
+console.log(selectedEstablishment)
   return (
     <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
       {selectedEstablishment && (
         <View>
-          <Text>Selected Establishment:</Text>
           <Text>Name: {selectedEstablishment.name}</Text>
-          <Text>Latitude: {selectedEstablishment.latitude}</Text>
-          <Text>Longitude: {selectedEstablishment.longitude}</Text>
+
         </View>
       )}
       <Button title="Check-In" onPress={handleCheckIn} />
