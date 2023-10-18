@@ -95,7 +95,7 @@ const App = () => {
           <Stack.Screen name="here." component={Root} options={{ headerShown: false }}/>
 
           {/* Other Screens */}
-          <Stack.Screen name="City Profile" component={CityProfile} />
+          <Stack.Screen name="City Profile" component={CityProfile} options={{ headerShown: true }}/>
           <Stack.Screen name="Establishment" component={EstablishmentScreen} />
         </Stack.Navigator>
       )}
