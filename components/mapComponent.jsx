@@ -58,6 +58,7 @@ class CustomMapView extends Component {
               coordinate={marker.latlng}
               title={marker.title}
               description={marker.description}
+              pinColor={'tomato'}
               onPress={() => setTimeout(() => this.handlePressEvent(marker.data), 1)}
             />
           ))}

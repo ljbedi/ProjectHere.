@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { View, Text, FlatList, StyleSheet, TouchableHighlight } from 'react-native';
 import { Link } from '@react-navigation/native';
 // import CheckedInContainer from '../containers/CheckedInContainer';
@@ -14,6 +15,7 @@ const CheckInList = ({ checkedIns, navigation }) => {
         data={checkedIns}
         keyExtractor={(checkIn) => checkIn.id.toString()}
         renderItem={({ item : checkIn }) => (
+
           <TouchableHighlight onPress={() => navigation.navigate('Establishment', { id: checkIn.id })}>
             <View style={styles.checkInList}>
               <Link to={{ screen: 'Establishment', params: { id: checkIn.id } }} style={styles.link}>
@@ -21,6 +23,7 @@ const CheckInList = ({ checkedIns, navigation }) => {
               </Link>
             </View>
           </TouchableHighlight>
+
         )}
       />
     </View>
@@ -28,6 +31,7 @@ const CheckInList = ({ checkedIns, navigation }) => {
 };
 
 const styles = StyleSheet.create ({
+
   checkInContainer: {
     bottom: 300
   },
@@ -45,3 +49,4 @@ const styles = StyleSheet.create ({
 })
 
 export default CheckInList;
+

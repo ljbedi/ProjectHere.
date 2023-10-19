@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StyleSheet } from 'react-native';
 import { Image } from 'react-native';
+
 function SplashScreen( {navigation} ) {
   return (
     <LinearGradient
@@ -35,6 +36,9 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: '#FDF295',
     padding: 20,
+    textShadowColor: 'black',
+    textShadowOffset: { width: 2, height: 0 },
+    textShadowRadius: 10,
   },
   image: {
     alignItems: 'center',

@@ -20,7 +20,7 @@ const CheckIn = ({ selectedEstablishment }) => {
           setCheckedInEstablishment(selectedEstablishment);
           Alert.alert('Check-In Successful', `You have checked in at ${selectedEstablishment.name}`);
         } else {
-          Alert.alert('Check-In Failed');
+          Alert.alert('You have previously checked in here!');
         }
       } else {
         Alert.alert('Establishment not available', 'Please select a valid establishment and try again.');
