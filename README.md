@@ -8,17 +8,24 @@ Can view a map with data from multiple apis.
 
 MVP:
 
-Interactive map
--check in feature
--review
--safety(zones?)
--destination card
+Interactive Map
+- To be able to explore the Map based on region and/or establishment
+- To be able to check-in to an establishment.
+- Small card component to appear to give a brief explanation of the venue.
 
-Reviews 
--safety review
--in house 
--user reviews
+Destination Guides 
+- To have access to destination guides based on city/destination.
 
-Multiple users
-Log-in system
+User Profile
+- To display basic user information.
+- To be able to view a list of checked in establishments.
+
+Extensions
+
+- Once checked in, leave a review for the establishment.
+- Implement log in system with authentication for multiple users.
+- Incorporate the ability to connect with other users, share tips between locals and tourists.
+- Heat Map to show popular destinations with recent reviews/check ins from other users.
+
+
 
