@@ -63,7 +63,7 @@ const App = () => {
             
           },
           
-          tabBarStyle: { backgroundColor: '#325F62', borderTopWidth: 2, borderTopColor: 'black', paddingBottom: 0},
+          tabBarStyle: { backgroundColor: '#325F62', borderTopWidth: 2, borderTopColor: 'black', paddingBottom: 0, height: 100},
           // tabBarLabelStyle: { fontSize: 16, color: 'white' },
           // tabBarIndicatorStyle: { backgroundColor: 'white', height: 100 },
           tabBarShowLabel: false,
@@ -75,6 +75,7 @@ const App = () => {
   <Tab.Screen
     name="Destinations"
     component={DestinationScreen}
+    options={{ headerShown: false }}
   />
         <Tab.Screen name="Map" component={MapScreen} initialParams={{ location }} options={{ headerShown: false }}/>
         <Tab.Screen name="User Profile" component={UserProfileScreen} options={{ headerShown: false }}/>
@@ -91,10 +92,10 @@ const App = () => {
       ) : (
         <Stack.Navigator>
           {/* Tabs */}
-          <Stack.Screen name="here." component={Root} />
+          <Stack.Screen name="here." component={Root} options={{ headerShown: false }}/>
 
           {/* Other Screens */}
-          <Stack.Screen name="City Profile" component={CityProfile} />
+          <Stack.Screen name="City Profile" component={CityProfile} options={{ headerShown: true }}/>
           <Stack.Screen name="Establishment" component={EstablishmentScreen} />
         </Stack.Navigator>
       )}

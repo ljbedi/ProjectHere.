@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, FlatList } from 'react-native';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
 import { Link } from '@react-navigation/native';
 // import CheckedInContainer from '../containers/CheckedInContainer';
 
@@ -14,9 +14,9 @@ const CheckInList = ({ checkedIns }) => {
         data={checkedIns}
         keyExtractor={(checkIn) => checkIn.id.toString()}
         renderItem={({ item : checkIn }) => (
-          <View style={style.checkInList}>
-            <Link to={{screen: 'Establishment', params: {id: checkIn.id}}}>
-              {checkIn.name}
+          <View style={styles.checkInList}>
+            <Link to={{screen: 'Establishment', params: {id: checkIn.id}}} style={styles.link}>
+              {checkIn.name} 
             </Link>
           </View>
         )}
@@ -25,12 +25,15 @@ const CheckInList = ({ checkedIns }) => {
   );
 };
 
-const style= Stylesheet.create ({
+const styles = StyleSheet.create ({
   checkInList: {
-    
+    fontSize: 50,
+    alignItems: 'center',
+  },
+  link: {
+    Text: 20
   }
 })
 
 export default CheckInList;
-
 

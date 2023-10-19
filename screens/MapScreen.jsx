@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   searchContainer: {
     position: 'absolute',
-    top: 10,
+    top: 60,
     left: 15,
     right: 0,
   },
@@ -55,7 +55,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 20,
     right: 125,
-    backgroundColor: 'lightgray',
+    backgroundColor: '#FAFAFA',
     borderWidth: 2,
     borderColor: 'black',
     borderRadius: 10,
