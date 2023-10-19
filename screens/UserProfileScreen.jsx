@@ -1,12 +1,12 @@
 import * as React from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import { Text, StyleSheet, SafeAreaView } from 'react-native';
 import UserContainer from '../containers/UserContainer';
 import CheckedInContainer from '../containers/CheckedInContainer';
 
 function UserProfileScreen({navigation, route}) {
   return (
     <SafeAreaView style={styles.userContainer}>
-      <Text>Your Profile</Text>
+      <Text style={{alignSelf: 'center', fontFamily: 'Georgia', fontSize: 20}}>Your Profile</Text>
       <UserContainer route={route}/>
       <CheckedInContainer navigation={navigation}/>
     </SafeAreaView>
@@ -16,9 +16,8 @@ function UserProfileScreen({navigation, route}) {
 const styles = StyleSheet.create ({
   userContainer: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#b9d3c2'
+    // alignItems: 'center',
+    backgroundColor: "#b9d3c2",
   }
 })
 

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
 const EstablishmentContainer = ({route, navigation}) => {
   const [establishment, setEstablishment] = useState([]);
@@ -20,18 +20,52 @@ const EstablishmentContainer = ({route, navigation}) => {
   console.log(establishment.reviews)
 
   return (
-    <View>
+    <>
+    <View style={styles.establishmentContainter}>
       {establishment && 
       <>
-        <Text>{establishment.name}</Text>
-        <Text>{establishment.description}</Text>
-        <Text>Total Checked In Users: {establishment.checked_in_users && establishment.checked_in_users.length}</Text>
-        <Text>Reviews:</Text>
-        {establishment.reviews && establishment.reviews.map(review => <Text>{review.post} ({review.rating})</Text>)}
+        <Text style={styles.ename}>{establishment.name}</Text>
+        <Text style={styles.edescription}>{establishment.description}</Text>
+        <View style={{ top: 15}}>
+        <Text style={styles.checkedin}>How Many Humans Have Checked in Here! {establishment.checked_in_users && establishment.checked_in_users.length}</Text>
+        <Text style={styles.reviews}>Reviews:</Text>
+        {establishment.reviews && establishment.reviews.map(review => <Text>{review.post}. Safety Rating: ({review.rating})</Text>)}
+        </View>
       </>
       }
+    
     </View>
+    </>
   )
 };
 
+const styles= StyleSheet.create ({
+  establishmentContainter: {
+    padding: 20,
+    bottom: 100,
+  },
+  ename: {
+    fontFamily: 'Georgia',
+    fontSize: 24,
+    bottom: 20
+  },
+  edescription: {
+    fontFamily: 'Georgia',
+    backgroundColor: 'lightgrey',
+    padding: 8,
+    fontSize: 18,
+    borderWidth:2,
+    borderColor: 'teal',
+    shadowOpacity: 0.3,
+    shadowRadius: 1
+  },
+  checkedin: {
+    fontFamily: 'Georgia',
+    fontSize: 17,
+    bottom: 8
+  },
+  reviews: {
+    fontSize: 20,
+  }
+})
 export default EstablishmentContainer;
